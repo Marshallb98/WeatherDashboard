@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    $("#futureCast1").text(moment().add(1, 'days').format('L'))
+    $("#futureCast2").text(moment().add(2, 'days').format('L'))
+    $("#futureCast3").text(moment().add(3, 'days').format('L'))
+    $("#futureCast4").text(moment().add(4, 'days').format('L'))
+    $("#futureCast5").text(moment().add(5, 'days').format('L'))
     $("#searchButton").on("click", function (event) {
         event.preventDefault()
         var city = $(".form-control").val()
@@ -41,6 +46,12 @@ $(document).ready(function () {
                     $("span").removeClass("badge badge-success")
                     $("span").removeClass("badge badge-warning")
                     $("span").addClass("badge badge-danger")
+                }
+                for (var i = 1; i < 6; i++){
+                    var futureTemp = (response2.daily[i].temp.day - 273.15) * 1.80 + 32  
+                    console.log(futureTemp.toFixed(2))
+                    $("#tempDay"+[i]).text(futureTemp.toFixed(2))
+
                 }
             })
         })

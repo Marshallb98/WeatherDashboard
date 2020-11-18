@@ -1,6 +1,10 @@
 #searchButton {
-    background-color: blue;
+    background-color: #007bff;
 }
 #fas {
+    color: #ffffff;
+}
+.card {
+    background-color: #007bff;
     color: #ffffff;
 }
