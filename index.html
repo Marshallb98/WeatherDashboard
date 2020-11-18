@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
         crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css">
     <title>Weather Dashboard</title>
 </head>
 
@@ -43,15 +44,20 @@
                     <li class="list-group-item">Vestibulum at eros</li>
                 </ul>
             </div>
-            <div class="col-9">
-                <div class="row" id="currentCity">
-                    <div class="col">
-                        <h3>Atlanta</h3>
+            <div class="col-8 mr-9">
+                <div class="row" id="currentCityBox">
+                    <div class="col border border-dark rounded">
+                        <br>
+                        <h3 id="currentCity">Search for a city!</h3>
+                        <p id="temp">Temperature:</p>
+                        <p id="humidity">Humidity: </p>
+                        <p id="wind-speed">Wind Speed:</p>
+                        <p>UV Index:<span id="uv-index"></span> </p>
                     </div>
-                </div>
+                <id>
                 <div class="row" id="5dayForecast">
                     <div class="col-2 mr-3">
-                        <div class="card" style="width: 14rem;">
+                        <div class="card" style="width: 15rem;">
                             <!-- <img src="..." class="card-img-top" alt="..."> -->
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
@@ -119,7 +125,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script> -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS -->
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -133,4 +140,5 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
