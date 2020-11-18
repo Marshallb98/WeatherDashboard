@@ -4,6 +4,7 @@ $(document).ready(function () {
     $("#futureCast3").text(moment().add(3, 'days').format('L'))
     $("#futureCast4").text(moment().add(4, 'days').format('L'))
     $("#futureCast5").text(moment().add(5, 'days').format('L'))
+    
     $("#searchButton").on("click", function (event) {
         event.preventDefault()
         var city = $(".form-control").val()
@@ -13,7 +14,10 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            $("#currentCity").text(response.name + " (" + moment().format('L') + ")")
+            var liEl = $("<li class="+"list-group-item"+">"+response.name+"</li>")
+            $("#searchHistory").prepend(liEl)
+            var currentImg = $("<img>")
+            $("#currentCity").text(response.name + " (" + moment().format('L') + ")").append(currentImg.attr("src","http://openweathermap.org/img/wn/"+response.weather[0].icon+"@2x.png"))
             var tempF = (response.main.temp - 273.15) * 1.80 + 32;
             $("#temp").text("Temperature: " + tempF.toFixed(1) + " °F")
             $("#humidity").text("Humidity: " + response.main.humidity + "%")
