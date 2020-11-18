@@ -49,8 +49,13 @@ $(document).ready(function () {
                 }
                 for (var i = 1; i < 6; i++){
                     var futureTemp = (response2.daily[i].temp.day - 273.15) * 1.80 + 32  
-                    console.log(futureTemp.toFixed(2))
-                    $("#tempDay"+[i]).text(futureTemp.toFixed(2))
+                    var futureHumidity = (response2.daily[i].humidity)
+                    var futureImg = ("http://openweathermap.org/img/wn/"+response2.daily[i].weather[0].icon+"@2x.png")
+                    console.log(futureImg)
+                    $("#tempDay"+[i]).text("Temp: "+futureTemp.toFixed(2)+" °F")
+                    $("#humidityDay"+[i]).text("Humidity: "+futureHumidity+"%")
+                    $(".img"+[i]).attr("src",futureImg)
+
 
                 }
             })
