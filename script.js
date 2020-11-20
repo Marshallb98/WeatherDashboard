@@ -1,3 +1,15 @@
+var searchData = []
+var previousWeather = ""
+if (localStorage.getItem("searchData")) {
+    searchData = JSON.parse(localStorage.getItem('searchData'))
+    for (var i = 0; i < searchData.length; i++) {
+     var historyLi = $("<li class=" + "list-group-item" + ">" + searchData[i] + "</li>")  
+     $("#searchHistory").append(historyLi)
+     
+    }
+
+}
+
 $(document).ready(function () {
     // adds the date to the 5 weather displays at the bottom
     $("#futureCast1").text(moment().add(1, 'days').format('L'))
@@ -19,8 +31,16 @@ $(document).ready(function () {
             // creates a li element with the name under the search bar
             var liEl = $("<li class=" + "list-group-item" + ">" + response.name + "</li>")
             $("#searchHistory").prepend(liEl)
-            var searchData = []
-            localStorage.setItem('searchData', response.name)
+            searchData.unshift(response.name)
+            console.log(searchData)
+            previousWeather = $("#display-Weather").contents("*")
+            previousWeather.push($("#display-Weather").contents("*"))
+            localStorage.setItem('previousWeather', JSON.parse(previousWeather))
+            console.log(previousWeather)
+            if (searchData.length >= 5){
+                searchData.pop()
+            }
+            localStorage.setItem('searchData', JSON.stringify(searchData))
             // adds icon right next to the current data that displays how it looks outside
             var currentImg = $("<img>")
             $("#currentCity").text(response.name + " (" + moment().format('L') + ")").append(currentImg.attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"))
